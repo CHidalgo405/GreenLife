@@ -1,0 +1,7 @@
+{
+  "name": "GreenLife",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
