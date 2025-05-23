@@ -1,13 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>welcome</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">welcome</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen class="welcome-page">
+  <div class="overlay">
+    <h1 class="welcome-text">¡Bienvenido a la app movil de Green Life!</h1> <br>
+    <p class="welcome-description">
+    </p>
+    <ion-button expand="block" class="start-button" (click)="goToHome()">Comenzar</ion-button>
+  </div>
 </ion-content>
+

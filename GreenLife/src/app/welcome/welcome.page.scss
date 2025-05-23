@@ -1,0 +1,38 @@
+.welcome-page {
+  --background: url('/assets/welcome-background.jpeg') no-repeat center center / cover;
+
+  .overlay {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, .10); /* oscurece un poco la imagen para mejor visibilidad */
+
+    .welcome-text {
+      color: #428855;
+      font-size: 35px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 45px;
+    }
+
+    .welcome-description {
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .start-button {
+      --background: #428855;
+      color: #ffffff;
+      margin-top: 500px;
+      width: 80%;
+      height: 40px;
+      --border-radius: 25px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+    }
+  }
+}

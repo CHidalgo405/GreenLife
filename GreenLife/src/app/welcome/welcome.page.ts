@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.page.scss'],
   standalone: false
 })
-export class WelcomePage implements OnInit {
+export class WelcomePage {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
-  ngOnInit() {
+  goToHome() {
+    this.navCtrl.navigateRoot('/tabs'); // o cualquier otra ruta principal de tu app
   }
 
 }
