@@ -1,1 +1,19 @@
+ion-tab-button {
+  // Default (inactive) tab styles
+  ion-icon {
+    color: var(--ion-color-medium); // Outline icon color
+  }
+  ion-label {
+    color: var(--ion-color-medium); // Inactive label color
+  }
 
+  // Active tab styles
+  &.tab-selected {
+    ion-icon {
+      color: var(--ion-color-primary); // Filled icon color
+    }
+    ion-label {
+      color: var(--ion-color-primary); // Active label color
+    }
+  }
+}
