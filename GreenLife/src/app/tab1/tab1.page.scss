@@ -1,9 +1,19 @@
 .title{
-    font-size:30px;
+    text-align: center;
+}
+
+.title-text{
+    font-size: 34px;
     font-weight: bold;
     color: #428855;
     text-align: center;
 }
+
+.logo{
+    margin-top: 5px;
+    margin-right: 7px;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -31,4 +41,9 @@
     height: 40px;
     --border-radius: 25px;
     justify-content: center;
+}
+
+.stars{
+    color: #428855;
+    margin-right: 2px;
 }
