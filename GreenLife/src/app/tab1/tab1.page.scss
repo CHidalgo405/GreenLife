@@ -1,17 +1,21 @@
-.title{
-    text-align: center;
-}
+.title {
+  display: flex;
+  align-items: center;     // Centra verticalmente
+  justify-content: center; // Centra horizontalmente
+  gap: 8px;                // Espacio entre la imagen y el texto (ajústalo si quieres)
+  text-align: center; // Asegura que el texto esté centrado
+  
+  .logo {
+    width: auto; 
+    height: 45px; // Mantiene proporciones
+  }
 
-.title-text{
+  .title-text {
     font-size: 34px;
     font-weight: bold;
     color: #428855;
-    text-align: center;
-}
-
-.logo{
-    margin-top: 5px;
-    margin-right: 7px;
+    justify-content: center; // Centra horizontalmente
+  }
 }
 
 .product-grid {
@@ -32,18 +36,43 @@
     transform: translateX(-50%);
 }
 
+.precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #428855;
+    margin-top: 5px;
+}
+
 .boton-cart{
-    background-color: #428855;
     color: white;
-    border-radius: 10px;
+    --border-radius: 12px;
     margin-top: 5px;
     width: 100%;
     height: 40px;
-    --border-radius: 25px;
     justify-content: center;
+    font-size: 13px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .stars{
     color: #428855;
     margin-right: 2px;
+}
+
+.spam-card{
+    width: 92%;
+    background-color: #E2E9D8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+}
+
+.contactanos-icono{
+  font-size: 18px;
+  color: #428855;
+  margin-right: 5px;
 }
