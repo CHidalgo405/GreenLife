@@ -17,3 +17,23 @@
     justify-content: center; // Centra horizontalmente
   }
 }
+
+.carro-vacio {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #428855;
+}
+
+.boton-cart{
+    color: white;
+    --border-radius: 12px;
+    margin-top: 5px;
+    width: 80%;
+    height: 40px;
+    justify-content: center;
+    font-size: 13px;
+    margin-left: 50%;
+    transform: translateX(-50%); // Centra horizontalmente
+}
+

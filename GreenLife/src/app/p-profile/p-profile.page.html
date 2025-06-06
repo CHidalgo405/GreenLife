@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Acerca de tu perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">p-profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <p>Si deseas editar la iniformacion de tu perfil aca tienes unas opciones:</p>
+  <p>Para editar tu perfil estra aqui:</p>
+  <ion-button class="boton" routerLink="/welcome"  expand="block">Editar Perfil</ion-button>
+  <p>Si deseas cambiar tu contraseña o eliminar tu cuenta, puedes hacerlo desde las siguientes opciones:</p>
+  <ion-button class="boton" routerLink="/welcome" expand="block">Cambiar Email</ion-button>
+    <ion-button class="boton" routerLink="/welcome" expand="block">Cambiar Contraseña</ion-button>
+    <ion-button class="boton" routerLink="/welcome" expand="block">Eliminar Cuenta</ion-button>
+</ion-content>

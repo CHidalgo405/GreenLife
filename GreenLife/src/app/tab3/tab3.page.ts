@@ -7,7 +7,19 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab3Page {
+  isLoggedIn: boolean = false;
+  userProfile = {
+    name: 'Carlos Hidalgo',
+    email: 'carlos@gmail.com',
+    phone: '+52 123 456 7890',
+    bio: 'Apasionado por la tecnología y el desarrollo de aplicaciones móviles.'
+  };
 
-  constructor() {}
+  login() {
+    this.isLoggedIn = true;
+  }
 
+  logout() {
+    this.isLoggedIn = false;
+  }
 }

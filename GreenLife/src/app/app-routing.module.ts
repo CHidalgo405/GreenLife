@@ -14,6 +14,26 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
+    path: 'p-profile',
+    loadChildren: () => import('./p-profile/p-profile.module').then( m => m.PProfilePageModule)
+  },
+  {
+    path: 'p-settings',
+    loadChildren: () => import('./p-settings/p-settings.module').then( m => m.PSettingsPageModule)
+  },
+  {
+    path: 'p-about',
+    loadChildren: () => import('./p-about/p-about.module').then( m => m.PAboutPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 @NgModule({

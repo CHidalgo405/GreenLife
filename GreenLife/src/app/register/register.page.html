@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p>Por favor, completa el siguiente formulario para crear una cuenta.</p>
+  <ion-item class="item">
+    <ion-input label="Nombres" label-placement="floating" fill="outline" placeholder="Nombre (s)"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-input label="Apellidos" label-placement="floating" fill="outline" placeholder="Apellido (s)"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-input label="Correo Electrónico" label-placement="floating" fill="outline" type="email" placeholder="Correo Electrónico"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Contraseña"></ion-input>
+  </ion-item><br>
+  <ion-item>
+    <ion-input label="Confirmar Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Confirmar Contraseña"></ion-input>
+  </ion-item><br>
+  <ion-button class="boton" expand="block" routerLink="/login">Registrarse</ion-button><br>
+  <p>Si ya tienes cuenta ingresa aqui</p>
+  <ion-button class="boton" expand="block" routerLink="/login">Iniciar Sesión</ion-button><br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información Adicional</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Al registrarte, aceptas nuestros <a routerLink="/p-terms">Términos y Condiciones</a> y nuestra <a routerLink="/p-privacy">Política de Privacidad</a>.</p>
+      <p>Si tienes alguna pregunta, no dudes en contactarnos a través de nuestra sección de <a routerLink="/p-contact">Contacto</a>.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,62 @@
+.title {
+  display: flex;
+  align-items: center;     // Centra verticalmente
+  justify-content: center; // Centra horizontalmente
+  gap: 8px;                // Espacio entre la imagen y el texto (ajústalo si quieres)
+  text-align: center; // Asegura que el texto esté centrado
+  
+  .logo {
+    width: auto; 
+    height: 45px; // Mantiene proporciones
+  }
+
+  .title-text {
+    font-size: 34px;
+    font-weight: bold;
+    color: #428855;
+    justify-content: center; // Centra horizontalmente
+  }
+}
+
+.b1{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #428855;
+}
+
+.profile-picture{
+    width: 175px;
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%); // Centra horizontalmente
+}
+
+.login-container{
+    width: 100%;
+}
+
+.boton-cart{
+    color: white;
+    --border-radius: 12px;
+    margin-top: 5px;
+    width: 80%;
+    height: 40px;
+    justify-content: center;
+    font-size: 13px;
+    margin-left: 50%;
+    transform: translateX(-50%); // Centra horizontalmente
+}
+
+.texto{
+    text-align: center;
+    font-size: 16px;
+}
+
+ion-card {
+  margin: 16px;
+}
+
+ion-button {
+  margin-top: 16px;
+}
