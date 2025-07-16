@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>recibo de la compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <h2>¡Gracias por tu compra!</h2>
+  <ion-list>
+    <ion-item *ngFor="let item of carrito">
+      <ion-label>
+        {{ item.nombre }} x{{ item.cantidad }} — ${{ item.precio * item.cantidad }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <h3>Total: ${{ total }}</h3>
+
+  <ion-button expand="block" (click)="descargarPDF()">Descargar recibo en PDF</ion-button>
+</ion-content>

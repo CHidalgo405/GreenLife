@@ -1,30 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-  <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Iniciar Sesión</ion-title>
+    <ion-title class="title">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <p>Por favor, ingrese sus credenciales para iniciar sesión.</p>
-  <ion-item class="item">
-    <ion-input label="Correo Electrónico" label-placement="floating" fill="outline" type="email" placeholder="Correo Electrónico"></ion-input>
-  </ion-item><br>
-  <ion-item>
-    <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" placeholder="Contraseña"></ion-input>
-  </ion-item><br>
-  <ion-button class="boton" expand="block" routerLink="/tabs/tab1">Iniciar Sesión</ion-button><br>
-  <p>Si no tiene cuenta, puede registrarse aquí:</p>
-  <ion-button class="boton" expand="block" routerLink="/register">Registrarse</ion-button><br>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Información Adicional</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>Al iniciar sesión, aceptas nuestros <a routerLink="/p-terms">Términos y Condiciones</a> y nuestra <a routerLink="/p-privacy">Política de Privacidad</a>.</p>
-      <p>Si tienes alguna pregunta, no dudes en contactarnos a través de nuestra sección de <a routerLink="/p-contact">Contacto</a>.</p>
-    </ion-card-content>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <img src="/assets/inicio-sesion.png" alt="" width="100%">
+  <form class="ion-padding" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <p>Por favor, ingrese sus credenciales para iniciar sesión.</p>
+    <ion-item class="ion-margin-top">
+      <ion-input label="Correo Electrónico" label-placement="floating" fill="outline" type="email" formControlName="correo" required></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" formControlName="contrasena" required></ion-input>
+    </ion-item><br>
+
+    <div class="button-container">
+      <ion-button class="boton" type="submit">Iniciar Sesión</ion-button>
+    </div><br>
+    <div class="register-link ion-text-center">
+      <p>¿Olvidaste tu contraseña? <a routerLink="/forgot-password">Recuperar aquí</a></p>
+      <p>O</p>
+      <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+    </div>
+  </form>
 </ion-content>
