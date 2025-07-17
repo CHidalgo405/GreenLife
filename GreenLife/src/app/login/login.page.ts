@@ -46,7 +46,7 @@ export class LoginPage {
           const toast = await this.toastController.create({
             message: 'Correo o contraseña incorrectos.',
             duration: 2500,
-            color: 'success',
+            color: 'danger',
             position: 'middle',
           });
           await toast.present();

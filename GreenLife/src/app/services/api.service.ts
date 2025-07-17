@@ -26,15 +26,11 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, body, { headers: this.getHeaders() });
   }
 
-  register(userData: {
-    nombre: string,
-    appaterno: string,
-    apmaterno: string,
-    correo: string,
-    contrasena: string,
-    direccion: string,
-    fechanacimiento: string
-  }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/usuario`, userData, { headers: this.getHeaders() });
-  }
+register(userData: FormData): Observable<any> {
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.apiPassword}`
+    // No pongas 'Content-Type', Angular lo gestiona para FormData
+  });
+  return this.http.post(`${this.apiUrl}/usuario`, userData, { headers });
+}
 }
