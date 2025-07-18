@@ -10,7 +10,6 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
   standalone: false
 })
-
 export class RegisterPage {
   registerForm: FormGroup;
   selectedImage: File | null = null;
@@ -29,8 +28,7 @@ export class RegisterPage {
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
       direccion: ['', Validators.required],
-      fechanacimiento: ['', Validators.required]
-      // No agregamos imagen aquí porque no es un campo de texto
+      fechanacimiento: ['', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]]
     });
   }
 
@@ -52,12 +50,24 @@ export class RegisterPage {
   async onRegister() {
     if (this.registerForm.valid) {
       const formData = new FormData();
-      Object.entries(this.registerForm.value).forEach(([key, value]) => {
-        formData.append(key, value as string);
+      // Asegurar que todos los campos estén presentes con valores válidos
+      formData.append('nombre', this.registerForm.get('nombre')?.value || '');
+      formData.append('appaterno', this.registerForm.get('appaterno')?.value || '');
+      formData.append('apmaterno', this.registerForm.get('apmaterno')?.value || '');
+      formData.append('correo', this.registerForm.get('correo')?.value || '');
+      formData.append('contrasena', this.registerForm.get('contrasena')?.value || '');
+      formData.append('direccion', this.registerForm.get('direccion')?.value || '');
+      formData.append('fechanacimiento', this.registerForm.get('fechanacimiento')?.value || '');
+      // Añadir imagen, o una cadena vacía si no hay archivo
+      formData.append('imagen', this.selectedImage ? this.selectedImage : '');
+
+      // Depuración: Convertir FormData a objeto para inspección
+      const formDataObject: { [key: string]: any } = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value instanceof File ? 'FILE' : value;
       });
-      if (this.selectedImage) {
-        formData.append('imagen', this.selectedImage);
-      }
+      console.log('Datos enviados en FormData:', formDataObject);
+
       this.authService.register(formData).subscribe({
         next: async (response) => {
           const toast = await this.toastController.create({
@@ -71,12 +81,13 @@ export class RegisterPage {
         },
         error: async (error) => {
           const toast = await this.toastController.create({
-            message: 'Error en el registro. Intenta de nuevo.',
+            message: `Error en el registro: ${error.message}. Intenta de nuevo.`,
             duration: 2500,
             color: 'danger',
             position: 'middle',
           });
           await toast.present();
+          console.error('Error detallado:', error);
         }
       });
     }
