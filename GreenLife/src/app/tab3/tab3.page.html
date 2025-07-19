@@ -7,63 +7,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="!isLoggedIn; else profileView" class="login-container">
-    <img src="/assets/Iniciar.png" alt="" width="100%">
-    <p class="texto">Por favor, inicia sesión para ver tu perfil y poder realizar compras.</p><br>
-    <ion-button class="boton-cart" expand="block" (click)="login()">Iniciar Sesión</ion-button><br>
-    <ion-button class="boton-cart" expand="block" routerLink="/register">Registrarse</ion-button>
-  </div>
-
-  <ng-template #profileView><br>
-    <img src="/assets/profile.png" alt="Profile Picture" class="profile-picture">
-        <ion-list>
-          <ion-item>
-            <ion-label>
-              <h2>Nombre</h2>
-              <p>{{ userProfile.name }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>
-              <h2>Email</h2>
-              <p>{{ userProfile.email }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>
-              <h2>Teléfono</h2>
-              <p>{{ userProfile.phone }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item routerLink="/p-profile" [button]="true">
-            <ion-icon color="" slot="start" name="person-circle-sharp" size="large"></ion-icon>
-            <ion-label>Tu perfil</ion-label>
-            <ion-note slot="end">
-              <ion-icon name="chevron-forward"></ion-icon>
-            </ion-note>
-          </ion-item>
-          <ion-item routerLink="/p-settings" [button]="true">
-            <ion-icon color="" slot="start" name="settings-sharp" size="large"></ion-icon>
-            <ion-label>Configuración</ion-label>
-            <ion-note slot="end">
-              <ion-icon name="chevron-forward"></ion-icon>
-            </ion-note>
-          </ion-item>
-          <ion-item routerLink="/p-privacy" [button]="true">
-            <ion-icon color="" slot="start" name="shield-checkmark-sharp" size="large"></ion-icon>
-            <ion-label>Política de Privacidad</ion-label>
-            <ion-note slot="end">
-              <ion-icon name="chevron-forward"></ion-icon>
-            </ion-note>
-          </ion-item>
-          <ion-item routerLink="/p-about" [button]="true">
-            <ion-icon color="" slot="start" name="information-circle-sharp" size="large"></ion-icon>
-            <ion-label>Acerca de</ion-label>
-            <ion-note slot="end">
-              <ion-icon name="chevron-forward"></ion-icon>
-            </ion-note>
-          </ion-item>
-        </ion-list>
-        <ion-button class="boton-cart" expand="block" (click)="logout()">Cerrar Sesión</ion-button>
-  </ng-template>
+  <ion-card *ngIf="userId">
+    <ion-card-header>
+      <ion-card-title>Información del Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="profile-image-container">
+        <img [src]="profileImage" alt="Foto de perfil" class="profile-image" />
+      </div>
+      <form [formGroup]="profileForm">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido Paterno</ion-label>
+          <ion-input formControlName="appaterno"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido Materno</ion-label>
+          <ion-input formControlName="apmaterno"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input formControlName="correo" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Dirección</ion-label>
+          <ion-input formControlName="direccion"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Fecha de Nacimiento</ion-label>
+          <ion-datetime formControlName="fechanacimiento" display-format="YYYY-MM-DD"></ion-datetime>
+        </ion-item>
+      </form>
+      <ion-button expand="block" (click)="toggleEdit()" *ngIf="!isEditing">Editar Perfil</ion-button>
+      <ion-button expand="block" (click)="saveProfile()" *ngIf="isEditing" [disabled]="!profileForm.valid">Guardar Cambios</ion-button>
+      <ion-button expand="block" color="light" (click)="toggleEdit()" *ngIf="isEditing">Cancelar</ion-button>
+      <ion-button expand="block" color="danger" (click)="deleteAccount()">Eliminar Perfil</ion-button>
+      <ion-button expand="block" color="secondary" (click)="logout()">Cerrar Sesión</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="!userId">
+    <ion-card-content>
+      <p>No se pudo cargar la información del perfil. Por favor, inicia sesión nuevamente.</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

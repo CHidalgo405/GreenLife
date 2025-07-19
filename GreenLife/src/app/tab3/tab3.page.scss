@@ -18,6 +18,27 @@
   }
 }
 
+ion-card {
+  margin: 16px;
+}
+
+ion-button {
+  margin-top: 16px;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.profile-image {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .b1{
     text-align: center;
     font-size: 28px;

@@ -4,7 +4,6 @@ import { AuthService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -30,24 +29,22 @@ export class LoginPage {
     if (this.loginForm.valid) {
       const { correo, contrasena } = this.loginForm.value;
       this.authService.login(correo, contrasena).subscribe({
-        next: (res) => {
-          // Aquí puedes guardar el token si lo necesitas 
-          this.router.navigate(['/tabs/tab1'])
-          // Muestra un mensaje de éxito
-          const toast = this.toastController.create({
+        next: async (res) => {
+          const toast = await this.toastController.create({
             message: 'Inicio de sesión exitoso.',
             duration: 2500,
             color: 'success',
-            position: 'middle',
+            position: 'middle'
           });
+          await toast.present();
+          this.router.navigate(['/tabs/tab1']);
         },
         error: async (err) => {
-          // Muestra un mensaje de error
           const toast = await this.toastController.create({
             message: 'Correo o contraseña incorrectos.',
             duration: 2500,
             color: 'danger',
-            position: 'middle',
+            position: 'middle'
           });
           await toast.present();
         }
