@@ -1,32 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+  <ion-buttons slot="start">
+      <ion-back-button class="icono2" defaultHref="/tabs/tab3"></ion-back-button>
+      <ion-title class="title">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+    </ion-title>
     </ion-buttons>
-    <ion-title>p-about</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">p-about</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title class="b1">Acerca de GreenLife</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>GreenLife es una aplicación diseñada para ayudarte a llevar un estilo de vida más saludable y sostenible. Aquí encontrarás consejos sobre alimentación, ejercicio y bienestar general.</p>
-      <p>Desarrollado por el equipo de GreenLife, nuestra misión es promover un estilo de vida saludable y consciente del medio ambiente.</p>
-    </ion-card-content>
-    <div class="ion-padding">
-      <ion-button class="boton" expand="block" routerLink="/p-contact">Contáctanos</ion-button>
-      <ion-button class="boton" expand="block" routerLink="/p-terms">Términos y Condiciones</ion-button>
-      <ion-button class="boton" expand="block" routerLink="/p-privacy">Política de Privacidad</ion-button>
-      <ion-button class="boton" expand="block" routerLink="/p-faq">Preguntas Frecuentes</ion-button>
-      <ion-button class="boton" expand="block" routerLink="/p-feedback">Enviar Feedback</ion-button>
-    </div>
-  </ion-card>
+  <img src="/assets/about.png" alt="About Image" width="100%">
+  <p class="texto-uno">Nuestra Historia</p>
+  <p class="texto-dos">
+    Green Life Hidrocultivos comenzó en Tehuacán, Puebla, como un proyecto liderado por tres mujeres 
+    emprendedoras para promover la agricultura sostenible con cultivos hidropónicos de lechugas. 
+    Tras superar retos iniciales, se consolidó como negocio independiente, creciendo desde ventas 
+    casa por casa hasta atender a residentes, restaurantes (como La Iberia), hoteles y pequeñas empresas. 
+    Hoy, ofrecemos lechugas (Stharfire, Grazion, Maximus, Redial, Skay, Ruby), rúcula, germinados, nopales, 
+    rábanos, berros y espinacas baby, gestionando pedidos principalmente por WhatsApp.
+  </p>
+  <p class="texto-uno">Misión</p>
+  <p class="texto-dos">
+    Ofrecer productos hidropónicos frescos y sostenibles en Tehuacán, fomentando una alimentación saludable 
+    y prácticas agrícolas responsables.
+  </p>
+  <p class="texto-uno">Visión</p>
+  <p class="texto-dos">
+    Ser el principal proveedor de vegetales hidropónicos en Tehuacán, destacando por calidad, sostenibilidad 
+    y compromiso comunitario, con expansión a nuevos mercados.
+  </p>
+  <p class="texto-uno">Objetivos</p>
+  <p class="texto-dos">
+    1.-Garantizar productos frescos, libres de pesticidas y nutritivos. <br>
+    2.-Ampliar alianzas con restaurantes, hoteles y empresas locales. <br>
+    3.-Optimizar procesos para minimizar el uso de agua y recursos.  <br>
+    4.-Crear empleos para mujeres y jóvenes, y promover la sostenibilidad. <br>
+    5.-Diversificar cultivos para satisfacer demandas variadas.  <br>
+  </p>
+  <p class="texto-uno">Nuestro Proceso</p>
+  <p class="texto-dos">
+    Utilizamos un sistema hidropónico eficiente que consume hasta 90% menos agua que la agricultura tradicional: <br>
+    1.-Siembra: Semillas en lana de roca o fibra de coco. <br>
+    2.-Germinación: Ambiente controlado para plántulas. <br>
+    3.-Crecimiento: Plántulas en soluciones nutritivas. <br>
+    4.-Maduración: Cultivos en canales hidropónicos. <br>
+    5.-Cosecha y Distribución: Productos listos en 4-6 semanas, entregados a clientes locales vía WhatsApp o puerta a puerta.
+  </p>
 </ion-content>

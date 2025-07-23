@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'recibo',
     loadChildren: () => import('./recibo/recibo.module').then( m => m.ReciboPageModule)
+  },
+  {
+    path: 'p-delete',
+    loadChildren: () => import('./p-delete/p-delete.module').then( m => m.PDeletePageModule)
   }
 ];
 @NgModule({

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button class="icono2" defaultHref="/tabs/tab3"></ion-back-button>
+      <ion-title class="title">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+    </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img src="/assets/eliminar.png" alt="" width="100%">
+  <p class="texto-uno">En este apartado de muesta aplicación puedes eliminar tu perfil </p>
+  <p class="texto-uno">¿Estás seguro de que deseas eliminar tu cuenta? Esta acción es irreversible.</p>
+  <p class="Bienvenido2">Iniciaste sesión con:</p>
+  <div class="profile-image-container ion-padding">
+    <img [src]="profileImage" alt="Foto de perfil" class="profile-image" />
+    <p class="Bienvenido">{{ profileForm.value.nombre }} {{ profileForm.value.appaterno }} {{ profileForm.value.apmaterno }}</p>
+  </div>
+  <br>
+  <p class="texto-uno">Si eliminas tu cuenta, perderás toda la información asociada a ella, incluyendo tus datos personales, historial de compras y configuraciones.</p>
+  <ion-button class="boton" (click)="deleteAccount()">Eliminar Perfil</ion-button>
+  <p class="texto-uno">Si tienes alguna pregunta o necesitas ayuda, por favor contáctanos a través de nuestro correo electrónico o redes sociales.</p>
+      
+  <ion-card *ngIf="!userId">
+    <ion-card-content>
+      <p>No se pudo cargar la información del perfil. Por favor, inicia sesión nuevamente.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

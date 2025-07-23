@@ -18,12 +18,9 @@
   }
 }
 
-ion-card {
-  margin: 16px;
-}
-
-ion-button {
-  margin-top: 16px;
+.icono2 {
+    color: #428855;
+    font-size: 28px;
 }
 
 .profile-image-container {
@@ -56,24 +53,8 @@ ion-button {
 
 .Bienvenido2{
     margin: 25px 0px 0px 10px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.datos{
-  --background: #e2e9d800;
-  width: 100%;
-}
-
-.configuraciones{
-  --background: #e2e9d800;
-  margin: 5px 0px 0px 0px;
-}
-
-.b1{
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 700;
     color: #428855;
 }
 
@@ -84,25 +65,23 @@ ion-button {
     transform: translateX(-50%); // Centra horizontalmente
 }
 
-.login-container{
-    width: 100%;
-}
-
-.boton-cart{
+.boton{
+    --background: #b00000;
     color: white;
     --border-radius: 12px;
     margin-top: 5px;
-    width: 80%;
-    height: 40px;
+    width: 90%;
+    height: 42px;
     justify-content: center;
-    font-size: 13px;
+    font-size: 15px;
     margin-left: 50%;
     transform: translateX(-50%); // Centra horizontalmente
 }
 
-.texto{
-    text-align: center;
-    font-size: 16px;
+.texto-uno{
+    margin: 12px;
+    text-align: justify;
+    font-size: 15px;
 }
 
 ion-card {

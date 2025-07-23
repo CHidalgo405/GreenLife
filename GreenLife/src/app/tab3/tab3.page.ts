@@ -14,7 +14,7 @@ export class Tab3Page implements OnInit {
   profileForm: FormGroup;
   userId: string | null = null;
   isEditing = false;
-  profileImage: string = 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png'; // Generic image URL
+  profileImage: string = 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png'; 
 
   constructor(
     private fb: FormBuilder,
@@ -144,6 +144,14 @@ export class Tab3Page implements OnInit {
       });
     } else {
       this.showToast('No se pudo encontrar el ID del usuario para eliminar la cuenta.', 'danger');
+    }
+  }
+
+  ionViewWillEnter() {
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+      sessionStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
     }
   }
 }

@@ -15,4 +15,13 @@ export class WelcomePage {
     this.navCtrl.navigateRoot('/tabs'); // o cualquier otra ruta principal de tu app
   }
 
+  // actualizar una vez la app cada vez que se ingresa a la página de bienvenida
+  ionViewWillEnter() {
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+      sessionStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
+    }
+  }
+
 }

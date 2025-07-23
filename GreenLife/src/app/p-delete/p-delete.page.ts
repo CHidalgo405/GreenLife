@@ -5,14 +5,13 @@ import { AuthService } from '../services/api.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-p-profile',
-  templateUrl: './p-profile.page.html',
-  styleUrls: ['./p-profile.page.scss'],
-  standalone: false,
+  selector: 'app-p-delete',
+  templateUrl: './p-delete.page.html',
+  styleUrls: ['./p-delete.page.scss'],
+  standalone: false
 })
-
-export class PProfilePage implements OnInit {
-profileForm: FormGroup;
+export class PDeletePage implements OnInit {
+  profileForm: FormGroup;
   userId: string | null = null;
   isEditing = false;
   profileImage: string = 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png'; // Generic image URL
@@ -113,5 +112,38 @@ profileForm: FormGroup;
       position: 'middle'
     });
     await toast.present();
+  }
+
+  logout() {
+    if (this.userId) {
+      if (!confirm('¿Deseas cerrar sesión?')) {
+        return; // User cancelled the logout
+      }
+    }
+    this.authService.logout();
+    this.showToast('Has cerrado sesión.', 'success');
+    this.router.navigate(['/welcome']);
+  }
+
+  deleteAccount() {
+    if (this.userId) {
+      if (!confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+        return; // User cancelled the deletion
+      }
+      this.authService.deleteUser(this.userId).subscribe({
+        next: async () => {
+          await this.showToast('Cuenta eliminada con éxito.', 'success');
+          this.logout(); // Clear session after deletion
+          // Optionally, redirect to login or home page
+          this.router.navigate(['/welcome']);
+        },
+        error: async (err) => {
+          console.error('Error deleting account:', err); // Debug log
+          await this.showToast('Error al eliminar la cuenta. Inténtalo de nuevo.', 'danger');
+        }
+      });
+    } else {
+      this.showToast('No se pudo encontrar el ID del usuario para eliminar la cuenta.', 'danger');
+    }
   }
 }
