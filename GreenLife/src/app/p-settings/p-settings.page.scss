@@ -1,0 +1,24 @@
+.title {
+  display: flex;
+  align-items: center;     // Centra verticalmente
+  justify-content: center; // Centra horizontalmente
+  gap: 8px;                // Espacio entre la imagen y el texto (ajústalo si quieres)
+  text-align: center; // Asegura que el texto esté centrado
+  
+  .logo {
+    width: auto; 
+    height: 45px; // Mantiene proporciones
+  }
+
+  .title-text {
+    font-size: 34px;
+    font-weight: bold;
+    color: #428855;
+    justify-content: center; // Centra horizontalmente
+  }
+}
+
+.icono2 {
+    color: #428855;
+    font-size: 28px;
+}

@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'p-delete',
     loadChildren: () => import('./p-delete/p-delete.module').then( m => m.PDeletePageModule)
+  },
+  {
+    path: 'p-politicas',
+    loadChildren: () => import('./p-politicas/p-politicas.module').then( m => m.PPoliticasPageModule)
   }
 ];
 @NgModule({
