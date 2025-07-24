@@ -41,6 +41,14 @@ export class Tab3Page implements OnInit {
     }
   }
 
+  ionViewWillEnter() {
+  const hasReloaded = sessionStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+      sessionStorage.setItem('hasReloaded', 'true');
+      window.location.reload();
+    }
+  }
+
   loadUserData(id: string) {
     this.authService.getUser(id).subscribe({
       next: (res) => {
@@ -144,14 +152,6 @@ export class Tab3Page implements OnInit {
       });
     } else {
       this.showToast('No se pudo encontrar el ID del usuario para eliminar la cuenta.', 'danger');
-    }
-  }
-
-  ionViewWillEnter() {
-    const hasReloaded = sessionStorage.getItem('hasReloaded');
-    if (!hasReloaded) {
-      sessionStorage.setItem('hasReloaded', 'true');
-      window.location.reload();
     }
   }
 }
