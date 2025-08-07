@@ -57,4 +57,16 @@ export class AuthService {
   register(userData: FormData): Observable<any> {
     return this.http.post(`${this.apiUrl}/usuario`, userData, { headers: this.getHeaders() });
   }
+
+  getProducts(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/producto`, { headers: this.getHeaders() });
+  }
+
+  registrarVenta(ventaData: any): Observable<any> {
+  return this.http.post(`${this.apiUrl}/venta`, ventaData, { headers: this.getHeaders() });
+  }
+
+  getVentaById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/venta/historial/${id}`, { headers: this.getHeaders() });
+  }
 }

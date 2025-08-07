@@ -1,27 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons class="btn-back" slot="start">
-    <ion-back-button default-href="#"></ion-back-button>
-  </ion-buttons>
-    <ion-title class="title">
+  <ion-buttons slot="start">
+      <ion-back-button class="icono2" defaultHref="/tabs/tab2"></ion-back-button>
+      <ion-title class="title">
       <img src="/assets/logo.png" alt="Logo" class="logo">
     </ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item lines="none">
+  <img src="/assets/metodo.png" alt="" width="100%">
+  <p class="direcccion">Revisa los detalles de tu compra antes de proceder al pago.</p>
+  <p class="productos">Dirección de Envío:</p>
+  <ion-item class="item1" lines="none">
     <ion-label>
-      <p>Revisa los detalles de tu compra antes de proceder al pago.</p><br>
-      <h3>Dirección de Envío:</h3>
-      <p>direccion del usuario</p>
+      <p class="direcccion2">{{ direccionUsuario }}</p>
     </ion-label>
   </ion-item>
   <h2 class="productos" >Productos:</h2>
-  <ion-list>
-    <ion-item *ngFor="let item of carrito">
+  <ion-list  class="items">
+    <ion-item class="item2" *ngFor="let item of carrito">
       <ion-label>
-        <h2>{{ item.nombre }}</h2>
+        <p class="text-item">{{ item.nombreproducto }}</p>
         <p>{{ item.descripcion }}</p>
         <strong>Cantidad: {{ item.cantidad }} — ${{ item.precio * item.cantidad }}</strong>
       </ion-label>
@@ -30,10 +31,9 @@
 
   <ion-item lines="none">
     <ion-label class="ion-text-end">
-      <h2>Total: ${{ total }}</h2>
+      <p class="text-total">Total: ${{ total }}</p>
     </ion-label>
-  </ion-item>
+  </ion-item><br>
 
-  <!-- Aquí va el botón de PayPal -->
-  <div id="paypal-button-container"></div>
+  <div id="paypal-button-container"></div><br>
 </ion-content>

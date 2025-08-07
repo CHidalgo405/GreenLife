@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular'; // Agrega esta importación
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular'; // Agrega esta importación
 export class Tab2Page {
   carrito: any[] = [];
 
-  constructor(private alertController: AlertController) {} // Agrega el constructor
+  constructor(private alertController: AlertController) {}
 
   ngOnInit() {
     this.cargarCarrito();

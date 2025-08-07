@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import jsPDF from 'jspdf';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recibo',
@@ -12,6 +13,8 @@ export class ReciboPage {
   total = 0;
   fecha = new Date();
   folio = '';
+
+  constructor(private router: Router) {}
 
   ionViewWillEnter() {
     const datos = localStorage.getItem('carrito');
@@ -47,7 +50,7 @@ export class ReciboPage {
 
     doc.setFontSize(11);
     this.carrito.forEach(item => {
-      const linea = `${item.nombre} x${item.cantidad} — $${item.precio * item.cantidad}`;
+      const linea = `${item.nombreproducto} x${item.cantidad} — $${item.precio * item.cantidad}`;
       doc.text(linea, 12, y);
       y += 6;
     });
@@ -72,4 +75,9 @@ export class ReciboPage {
     doc.save(`recibo-${this.folio}.pdf`);
     localStorage.removeItem('carrito');
   }
+
+  // Regresar al tab3 y limpiar el carrito
+  async finalizarCompra() {
+    localStorage.removeItem('carrito');
+  } 
 }

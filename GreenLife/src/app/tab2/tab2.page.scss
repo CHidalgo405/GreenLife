@@ -53,7 +53,7 @@
 }
 
 .lista2 {
-  font-size: 22px;
+  font-size: 30px;
   color: #428855;
   font-weight: bold;
 }
@@ -72,6 +72,12 @@
   padding: 2px;
 }
 
+.product-image{
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
 .flecha {
   width: 22px;
   margin-right: 10px;
@@ -84,6 +90,14 @@
   margin-left: 10px;
   margin-right: 20px;
   font-weight: 400;
+}
+
+.texto-des{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .abajo{

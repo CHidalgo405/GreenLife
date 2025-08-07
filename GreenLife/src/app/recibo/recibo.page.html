@@ -1,19 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recibo de la compra</ion-title>
+    <ion-title class="title">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <h2>¡Gracias por tu compra!</h2>
-  <ion-list>
-    <ion-item *ngFor="let item of carrito">
+  <img src="/assets/Recibo.png" width="100%" alt="Recibo de Compra">
+  <p class="Bienvenido2">Datos de la compra:</p>
+  <div class="profile-image-container2 ion-padding">
+    <ion-item lines="none" class="configuraciones">
       <ion-label>
-        {{ item.nombre }} x{{ item.cantidad }} — ${{ item.precio * item.cantidad }}
+        Total: ${{ total }} <br>
+        Folio: {{ folio }} <br>
+        Fecha: {{ fecha | date: 'dd/MM/yyyy' }} <br>
+        Hora: {{ fecha | date: 'HH:mm:ss' }}
+      </ion-label>
+  </ion-item>
+  </div>
+
+  <p class="Bienvenido2">Productos de la compra:</p>
+  <div class="profile-image-container2 ion-padding">
+  <ion-list class="profile-image-container" >
+    <ion-item class="configuraciones" *ngFor="let item of carrito">
+      <ion-label>
+        {{ item.nombreproducto }} x{{ item.cantidad }} — ${{ item.precio * item.cantidad }}
       </ion-label>
     </ion-item>
   </ion-list>
-  <h3>Total: ${{ total }}</h3>
+  </div>
+  <p class="Bienvenido">
+    Su compra se puede ver en el historial de compras en el apartado de perfil, a continuación podrá descargar el recibo en PDF o regresar al inicio.
+  </p>
 
-  <ion-button expand="block" (click)="descargarPDF()">Descargar recibo en PDF</ion-button>
+  <ion-button class="boton" (click)="descargarPDF()">Descargar recibo en PDF</ion-button>
+  <ion-button class="boton" (click)="finalizarCompra()" routerLink="/tabs/tab1">Regresar al inicio</ion-button>
+  <br><br>
 </ion-content>

@@ -10,6 +10,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./tab3.page.scss'],
   standalone: false
 })
+
 export class Tab3Page implements OnInit {
   profileForm: FormGroup;
   userId: string | null = null;
@@ -130,6 +131,7 @@ export class Tab3Page implements OnInit {
     }
     this.authService.logout();
     this.showToast('Has cerrado sesión.', 'success');
+    localStorage.removeItem('carrito');
     this.router.navigate(['/welcome']);
   }
 

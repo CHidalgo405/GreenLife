@@ -12,35 +12,36 @@
       <ion-title size="large">Carro de compras </ion-title>
     </ion-toolbar>
   </ion-header>
-    <div *ngIf="carrito.length === 0" class="empty-cart">
+  <div *ngIf="carrito.length === 0" class="empty-cart">
     <img src="/assets/carrito4.png" alt="" width="100%">
-  <br><br>
-  <p class="carro-vacio">
-    <ion-button class="boton-cart" routerLink="/tabs/tab1" expand="block">
-      <ion-icon class="flecha" name="arrow-back-outline"></ion-icon>
-      Volver a la tienda
-    </ion-button>
-  </p>
+    <br><br>
+    <p class="carro-vacio">
+      <ion-button class="boton-cart" routerLink="/tabs/tab1" expand="block">
+        <ion-icon class="flecha" name="arrow-back-outline"></ion-icon>
+        Volver a la tienda
+      </ion-button>
+    </p>
   </div>
 
   <div *ngIf="carrito.length > 0">
     <img src="/assets/carrito5.png" alt="" width="100%">
     <ion-list>
-    <ion-item class="producto" *ngFor="let item of carrito; let i = index">
-      <ion-label>
-        <p class="lista">{{ item.nombre }}</p>
-        <p>{{ item.descripcion }}</p>
-        <strong>${{ item.precio }} x {{ item.cantidad }} = ${{ item.precio * item.cantidad }}</strong>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button class="lista2" (click)="disminuirCantidad(i)">-</ion-button>
-        <ion-button class="lista2" (click)="aumentarCantidad(i)">+</ion-button>
-      </ion-buttons>
-    </ion-item>
-    <ion-button class="boton-cart" expand="block" (click)="limpiarCarrito()">
-      Limpiar carrito
-    </ion-button>
-  </ion-list>
+      <ion-item class="producto" *ngFor="let item of carrito; let i = index">
+        <img img [src]="item.fotourl" alt="{{ item.nombreproducto }}" class="product-image">
+        <ion-label>
+          <p class="lista">{{ item.nombreproducto }}</p>
+          <p class="texto-des" *ngIf="item.descripcion">{{ item.descripcion}}</p>
+          <strong>${{ item.precio }} x {{ item.cantidad }} = ${{ item.precio * item.cantidad }}</strong>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button class="lista2" (click)="disminuirCantidad(i)">-</ion-button>
+          <ion-button class="lista2" (click)="aumentarCantidad(i)">+</ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-button class="boton-cart" expand="block" (click)="limpiarCarrito()">
+        Limpiar carrito
+      </ion-button>
+    </ion-list>
   </div>
 </ion-content>
 
@@ -50,5 +51,5 @@
       <p class="texto-t">Total: ${{ obtenerTotal() }}</p>
       <ion-button class="boton-cart2" routerLink="/resumen-compra">Realizar compra</ion-button>
     </ion-row>
-</div>
+  </div>
 </ion-footer>
