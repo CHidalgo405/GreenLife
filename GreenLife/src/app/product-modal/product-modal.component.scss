@@ -1,0 +1,90 @@
+.title {
+  display: flex;
+  align-items: center;     // Centra verticalmente
+  justify-content: center; // Centra horizontalmente
+  gap: 8px;                // Espacio entre la imagen y el texto (ajústalo si quieres)
+  text-align: center; // Asegura que el texto esté centrado
+  
+  .logo {
+    width: auto; 
+    height: 45px; // Mantiene proporciones
+  }
+
+  .title-text {
+    font-size: 34px;
+    font-weight: bold;
+    color: #428855;
+    justify-content: center; // Centra horizontalmente
+  }
+}
+
+.close{
+    font-size: 30px;
+    color: #428855;
+    font-weight: 700;
+}
+.product-image-container{
+    background-color: #E2E9D8;
+    border-radius: 0 0 45px 45px;
+    width: 100% ;
+    height: 280px;
+}
+
+.product-image{
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.product-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: #428855;
+    text-align: center;
+}
+
+.product-description {
+    font-size: 16px;
+    color: #555;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.product-rating {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #428855;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.product-stock{
+    font-size: 16px;
+    color: #555;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.boton-cart{
+    color: white;
+    --border-radius: 12px;
+    margin-top: 0;
+    width: 90%;
+    height: 40px;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.stars{
+    color: #428855;
+    margin-right: 4px;
+    font-size: 16px;
+}

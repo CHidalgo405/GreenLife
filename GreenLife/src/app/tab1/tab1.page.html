@@ -14,7 +14,7 @@
   </ion-header>
   <img src="/assets/img1.png" alt="" width="100%">
   <div class="product-grid">
-    <ion-card *ngFor="let product of products" class="product-card">
+    <ion-card *ngFor="let product of products" class="product-card" (click)="openProductModal(product)">
       <img img [src]="product.fotourl" alt="{{ product.nombreproducto }}" class="product-image">
       <ion-card-header>
         <p class="product-title">{{ product.nombreproducto }}</p>
@@ -37,7 +37,7 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-button class="boton-cart" (click)="agregarAlCarrito(product)">
+        <ion-button class="boton-cart" (click)="agregarAlCarrito(product); $event.stopPropagation()">
           <ion-icon name="cart-outline"></ion-icon>
         </ion-button>
       </ion-card-content>

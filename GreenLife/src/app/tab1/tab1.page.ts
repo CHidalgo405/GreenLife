@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/api.service';
 import { ToastController } from '@ionic/angular';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -13,11 +15,21 @@ export class Tab1Page implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private modalController: ModalController // agrega esto
+
   ) {}
 
   ngOnInit() {
     this.loadProducts();
+  }
+
+  async openProductModal(product: any) {
+  const modal = await this.modalController.create({
+    component: ProductModalComponent,
+    componentProps: { product }
+  });
+  return await modal.present();
   }
 
   loadProducts() {

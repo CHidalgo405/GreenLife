@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title">
+      <img src="/assets/logo.png" alt="Logo" class="logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon class="close" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="product-image-container">
+    <img [src]="product.fotourl" alt="{{ product.nombreproducto }}" class="product-image">
+  </div>
+  <p class="product-title">{{ product.nombreproducto }}</p>
+  <p class="product-description">{{ product.descripcion }}</p>
+  <p class="product-rating">
+    <ion-icon name="star" class="stars"></ion-icon>
+    <ion-icon name="star" class="stars"></ion-icon>
+    <ion-icon name="star" class="stars"></ion-icon>
+    <ion-icon name="star" class="stars"></ion-icon>
+    <ion-icon name="star" class="stars"></ion-icon>
+   </p>
+  <p class="product-price" >Precio: ${{ product.precio }}</p>
+  <p class="product-stock">Stock: {{ product.stock }}</p>
+
+  <ion-button class="boton-cart" (click)="agregarAlCarrito()">
+    <ion-icon name="cart-outline"></ion-icon> Agregar al carrito
+  </ion-button>
+</ion-content>
